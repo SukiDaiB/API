@@ -17,7 +17,7 @@
         <div class="hero">
           <p class="eyebrow">Monte seu esquadrão</p>
           <h1 id="selection-title">Escolha seu agente</h1>
-          <p>Conheça funções e habilidades dos agentes jogáveis.</p>
+          <p>Conheça funções e habilidades dos agentes jogáveis. <span id="api-summary"></span></p>
         </div>
 
         <div class="agent-filters" aria-label="Pesquisar e filtrar agentes">
@@ -29,19 +29,15 @@
           <div class="role-filters" aria-label="Filtrar por função">
             <button class="role-filter active" type="button" data-role="todos" aria-pressed="true">Todos</button>
             <button class="role-filter" type="button" data-role="duelista" aria-pressed="false">
-              <img alt="" aria-hidden="true" />
               <span>Duelista</span>
             </button>
             <button class="role-filter" type="button" data-role="sentinela" aria-pressed="false">
-              <img alt="" aria-hidden="true" />
               <span>Sentinela</span>
             </button>
             <button class="role-filter" type="button" data-role="controlador" aria-pressed="false">
-              <img alt="" aria-hidden="true" />
               <span>Controlador</span>
             </button>
             <button class="role-filter" type="button" data-role="iniciador" aria-pressed="false">
-              <img alt="" aria-hidden="true" />
               <span>Iniciador</span>
             </button>
           </div>
@@ -49,6 +45,18 @@
 
         <p id="status" class="status" role="status" aria-live="polite">Carregando agentes...</p>
         <div id="agents-grid" class="agents-grid" aria-label="Agentes disponíveis"></div>
+
+        <section class="maps-section" aria-labelledby="maps-title">
+          <div class="logs-header">
+            <div>
+              <p class="eyebrow">Terceiro método da API</p>
+              <h2 id="maps-title">Mapas</h2>
+            </div>
+            <button id="load-maps-button" type="button">Ver mapas</button>
+          </div>
+          <p id="maps-status" class="status" role="status" hidden></p>
+          <div id="maps-list" class="maps-list"></div>
+        </section>
       </section>
 
       <section id="details-view" class="view details" aria-labelledby="agent-name" hidden>
@@ -81,7 +89,23 @@
           <div id="abilities-list" class="abilities-list"></div>
         </section>
       </section>
+
+      <section class="logs-section" aria-labelledby="logs-title">
+        <div class="logs-header">
+          <div>
+            <p class="eyebrow">Histórico da aplicação</p>
+            <h2 id="logs-title">Logs</h2>
+          </div>
+          <button id="load-logs-button" type="button">Atualizar logs</button>
+        </div>
+        <p id="logs-status" class="status" role="status">Clique em atualizar para consultar os logs.</p>
+        <div id="logs-list" class="logs-list"></div>
+      </section>
     </main>
+
+    <footer class="site-footer">
+      Bruno Steffen — Fundamentos ao Desenvolvimento Web
+    </footer>
 
     <script src="script.js" defer></script>
   </body>
