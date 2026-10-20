@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Seleção de agentes do Valorant usando a Valorant-API." />
+    <title>Seleção de Agentes | Valorant</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="#" aria-label="Ir para seleção de agentes">VALORANT <span>AGENTS</span></a>
+    </header>
+
+    <main>
+      <section id="selection-view" class="view" aria-labelledby="selection-title">
+        <div class="hero">
+          <p class="eyebrow">Monte seu esquadrão</p>
+          <h1 id="selection-title">Escolha seu agente</h1>
+          <p>Conheça funções e habilidades dos agentes jogáveis.</p>
+        </div>
+
+        <div class="agent-filters" aria-label="Pesquisar e filtrar agentes">
+          <label class="search-box" for="agent-search">
+            <span class="sr-only">Pesquisar agente</span>
+            <input id="agent-search" type="search" placeholder="Pesquisar agente..." autocomplete="off" />
+          </label>
+
+          <div class="role-filters" aria-label="Filtrar por função">
+            <button class="role-filter active" type="button" data-role="todos" aria-pressed="true">Todos</button>
+            <button class="role-filter" type="button" data-role="duelista" aria-pressed="false">
+              <img alt="" aria-hidden="true" />
+              <span>Duelista</span>
+            </button>
+            <button class="role-filter" type="button" data-role="sentinela" aria-pressed="false">
+              <img alt="" aria-hidden="true" />
+              <span>Sentinela</span>
+            </button>
+            <button class="role-filter" type="button" data-role="controlador" aria-pressed="false">
+              <img alt="" aria-hidden="true" />
+              <span>Controlador</span>
+            </button>
+            <button class="role-filter" type="button" data-role="iniciador" aria-pressed="false">
+              <img alt="" aria-hidden="true" />
+              <span>Iniciador</span>
+            </button>
+          </div>
+        </div>
+
+        <p id="status" class="status" role="status" aria-live="polite">Carregando agentes...</p>
+        <div id="agents-grid" class="agents-grid" aria-label="Agentes disponíveis"></div>
+      </section>
+
+      <section id="details-view" class="view details" aria-labelledby="agent-name" hidden>
+        <button id="back-button" class="back-button" type="button" aria-label="Voltar para seleção">
+          <span aria-hidden="true">←</span> Voltar para seleção
+        </button>
+
+        <article class="agent-profile">
+          <div class="agent-visual">
+            <img id="agent-image" src="" alt="" />
+          </div>
+
+          <div class="agent-info">
+            <p class="eyebrow">Agente selecionado</p>
+            <h1 id="agent-name"></h1>
+            <div class="role">
+              <img id="role-icon" src="" alt="" />
+              <div>
+                <span>Função</span>
+                <strong id="role-name"></strong>
+              </div>
+            </div>
+            <p id="agent-description" class="description"></p>
+          </div>
+        </article>
+
+        <section class="abilities-section" aria-labelledby="abilities-title">
+          <p class="eyebrow">Arsenal tático</p>
+          <h2 id="abilities-title">Habilidades</h2>
+          <div id="abilities-list" class="abilities-list"></div>
+        </section>
+      </section>
+    </main>
+
+    <script src="script.js" defer></script>
+  </body>
+</html>

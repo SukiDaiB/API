@@ -1,0 +1,350 @@
+:root {
+  --background: #0f1923;
+  --surface: #17222d;
+  --surface-light: #22303c;
+  --red: #ff4655;
+  --white: #ece8e1;
+  --muted: #a9b1b8;
+  --line: rgba(236, 232, 225, 0.14);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  color: var(--white);
+  background: var(--background);
+  font-family: Arial, Helvetica, sans-serif;
+  line-height: 1.5;
+}
+
+button,
+a {
+  font: inherit;
+}
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  padding: 18px clamp(20px, 5vw, 72px);
+  border-bottom: 1px solid var(--line);
+  background: rgba(15, 25, 35, 0.95);
+}
+
+.brand {
+  color: var(--white);
+  font-weight: 900;
+  letter-spacing: 0.12em;
+  text-decoration: none;
+}
+
+.brand span,
+.eyebrow {
+  color: var(--red);
+}
+
+.agent-filters {
+  display: grid;
+  gap: 16px;
+  margin-bottom: 28px;
+}
+
+.search-box input {
+  width: min(100%, 480px);
+  padding: 14px 16px;
+  color: var(--white);
+  border: 1px solid var(--line);
+  background: var(--surface);
+  outline: none;
+}
+
+.search-box input:focus {
+  border-color: var(--red);
+}
+
+.role-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.role-filter {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 14px;
+  color: var(--white);
+  border: 1px solid var(--line);
+  background: var(--surface);
+  cursor: pointer;
+}
+
+.role-filter img {
+  width: 22px;
+  height: 22px;
+  object-fit: contain;
+}
+
+.role-filter:hover,
+.role-filter:focus-visible,
+.role-filter.active {
+  border-color: var(--red);
+  background: var(--red);
+  outline: none;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+main {
+  width: min(1200px, calc(100% - 40px));
+  margin: 0 auto;
+  padding: 54px 0 72px;
+}
+
+.hero {
+  max-width: 680px;
+  margin-bottom: 40px;
+}
+
+h1,
+h2,
+p {
+  margin-top: 0;
+}
+
+h1,
+h2 {
+  margin-bottom: 12px;
+  line-height: 1.05;
+  text-transform: uppercase;
+}
+
+h1 {
+  font-size: clamp(2.4rem, 7vw, 5.5rem);
+}
+
+h2 {
+  font-size: clamp(1.8rem, 4vw, 3rem);
+}
+
+.hero > p:last-child,
+.description {
+  color: var(--muted);
+}
+
+.eyebrow {
+  margin-bottom: 8px;
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.status {
+  padding: 24px;
+  border: 1px solid var(--line);
+  text-align: center;
+}
+
+.status.error {
+  color: #ff9ca4;
+  border-color: var(--red);
+}
+
+.agents-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
+  gap: 18px;
+}
+
+.agent-card {
+  position: relative;
+  min-height: 290px;
+  padding: 0;
+  overflow: hidden;
+  color: var(--white);
+  border: 1px solid var(--line);
+  background: var(--surface);
+  cursor: pointer;
+  text-align: left;
+  transition: transform 180ms ease, border-color 180ms ease;
+}
+
+.agent-card:hover,
+.agent-card:focus-visible {
+  transform: translateY(-5px);
+  border-color: var(--red);
+  outline: none;
+}
+
+.agent-card img {
+  width: 100%;
+  height: 235px;
+  object-fit: contain;
+  background: linear-gradient(145deg, var(--surface-light), var(--surface));
+}
+
+.agent-card strong {
+  display: block;
+  padding: 16px;
+  font-size: 1.05rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.back-button {
+  margin-bottom: 36px;
+  padding: 12px 18px;
+  color: var(--white);
+  border: 1px solid var(--red);
+  background: transparent;
+  cursor: pointer;
+}
+
+.back-button:hover,
+.back-button:focus-visible {
+  color: var(--background);
+  background: var(--red);
+}
+
+.agent-profile {
+  display: grid;
+  grid-template-columns: minmax(280px, 0.9fr) 1.1fr;
+  align-items: center;
+  gap: clamp(30px, 6vw, 80px);
+  padding-bottom: 60px;
+  border-bottom: 1px solid var(--line);
+}
+
+.agent-visual {
+  min-height: 470px;
+  background: radial-gradient(circle, #344451 0%, var(--surface) 68%);
+}
+
+.agent-visual img {
+  display: block;
+  width: 100%;
+  height: 520px;
+  object-fit: contain;
+}
+
+.role {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin: 24px 0;
+}
+
+.role img {
+  width: 45px;
+  height: 45px;
+  object-fit: contain;
+}
+
+.role span,
+.role strong {
+  display: block;
+}
+
+.role span {
+  color: var(--muted);
+  font-size: 0.75rem;
+  text-transform: uppercase;
+}
+
+.description {
+  max-width: 650px;
+}
+
+.abilities-section {
+  padding-top: 52px;
+}
+
+.abilities-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(235px, 1fr));
+  gap: 18px;
+  margin-top: 28px;
+}
+
+.ability-card {
+  padding: 22px;
+  border-top: 3px solid var(--red);
+  background: var(--surface);
+}
+
+.ability-card img {
+  width: 54px;
+  height: 54px;
+  object-fit: contain;
+  margin-bottom: 14px;
+}
+
+.ability-card h3 {
+  margin: 0 0 10px;
+}
+
+.ability-card p {
+  margin-bottom: 0;
+  color: var(--muted);
+  font-size: 0.92rem;
+}
+
+[hidden] {
+  display: none !important;
+}
+
+@media (max-width: 720px) {
+  main {
+    width: min(100% - 28px, 1200px);
+    padding-top: 38px;
+  }
+
+  .agents-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+  }
+
+  .role-filter {
+    flex: 1 1 130px;
+    justify-content: center;
+  }
+
+  .agent-card {
+    min-height: 225px;
+  }
+
+  .agent-card img {
+    height: 175px;
+  }
+
+  .agent-profile {
+    grid-template-columns: 1fr;
+  }
+
+  .agent-visual,
+  .agent-visual img {
+    min-height: 330px;
+    height: 380px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    scroll-behavior: auto !important;
+    transition: none !important;
+  }
+}
